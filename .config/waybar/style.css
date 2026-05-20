@@ -1,0 +1,124 @@
+* {
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(33, 51, 84, 0.9);
+    border: 3px solid rgba(64, 97, 160, 1.0);
+    border-radius: 12px;
+    color: #cdd3e0;
+}
+
+/* <==> Left <=====================================================> */
+
+#workspaces {
+    padding: 0 10px;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    color: rgba(74, 122, 181, 0.45);
+    font-size: 16px;
+    background: transparent;
+    transition: color 1s ease;
+}
+
+#workspaces button.active {
+    color: #e6d47b;
+}
+
+#workspaces button.urgent {
+    color: #d0574e;
+}
+
+#workspaces button:hover {
+    color: #cdd3e0;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* <==> Center <=====================================================> */
+
+#clock {
+    color: #E6D47B;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    padding: 0 16px;
+}
+
+/* <==> Right <=====================================================> */
+
+#pulseaudio,
+#network,
+#tray,
+#custom-power {
+    padding: 0 12px;
+    color: #8890a4;
+    transition: color 0.2s ease;
+}
+
+#pulseaudio:hover {
+    color: #eeb8c4;
+}
+#network:hover {
+    color: #eeb8c4;
+}
+
+#pulseaudio.muted {
+    color: rgba(187, 96, 123, 1.0);
+}
+
+#network.disconnected {
+    color: rgba(187, 96, 123, 1.0);
+}
+
+#custom-power {
+    color: #8890a4;
+    font-size: 15px;
+    padding: 0 14px;
+    transition: color 0.2s ease;
+}
+
+#custom-power:hover {
+    color: #D0574E;
+}
+#mpris {
+    padding: 0 14px;
+    color: rgba(230, 212, 123, 1.0);
+    font-style: italic;
+    transition: color 0.8s ease;
+}
+
+#mpris.paused {
+    color: #8890a4;
+}
+
+/* <==> Separators <=====================================================> */
+
+#mpris {
+    border-left: 3px solid rgba(64, 97, 160, 1.0);
+    margin: 3px 0;
+}
+
+#pulseaudio {
+    border-left: 3px solid rgba(64, 97, 160, 1.0);
+    margin: 3px 0;
+}
+
+#custom-power {
+    border-left: 3px solid rgba(64, 97, 160, 1.0);
+    margin: 3px 0;
+}
+
+#tray {
+    border-left: 3px solid rgba(64, 97, 160, 1.0);
+    margin: 3px 0;
+}

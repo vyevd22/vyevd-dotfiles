@@ -1,0 +1,79 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+    "logo": {
+        "source": "~/.config/fastfetch/ryo-ascii.txt",
+        "color": {
+            "1": "#4061A0"
+        },
+        "padding": {
+            "top": 0,
+            "right": 4
+        }
+    },
+
+    "display": {
+        "separator": "  ",
+        "color": {
+            "keys": "#cdd3e0",
+            "title": "#4061A0"
+        }
+    },
+
+    "modules": [
+        {
+            "type": "custom",
+            "format": "\u250c\u2500 System \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510",
+            "outputColor": "#4061A0"
+        },
+        { "type": "os",       "key": "  OS",       "keyColor": "#4061A0" },
+        { "type": "kernel",   "key": "  Kernel",   "keyColor": "#4061A0" },
+        { "type": "uptime",   "key": "  Uptime",   "keyColor": "#4061A0" },
+        { "type": "packages", "key": "  Packages", "keyColor": "#4061A0", "format": "{?pacman}pacman{?}{?flatpak-all}, flatpak{?}{?snap}, snap{?}" },
+        { "type": "shell",    "key": "  Shell",    "keyColor": "#4061A0" },
+        {
+            "type": "custom",
+            "format": "\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518",
+            "outputColor": "#4061A0"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u250c\u2500 Display \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510",
+            "outputColor": "#BB607B"
+        },
+        { "type": "display",      "key": " Resolution", "keyColor": "#BB607B" },
+        { "type": "wm",           "key": " WM",         "keyColor": "#BB607B" },
+        { "type": "terminal",     "key": " Terminal",   "keyColor": "#BB607B" },
+        { "type": "terminalfont", "key": " Font",       "keyColor": "#BB607B" },
+        {
+            "type": "custom",
+            "format": "\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518",
+            "outputColor": "#BB607B"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u250c\u2500 Hardware \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510",
+            "outputColor": "#E6D47B"
+        },
+        { "type": "cpu",    "key": " CPU",     "keyColor": "#E6D47B" },
+        { "type": "gpu",    "key": " GPU",     "keyColor": "#E6D47B" },
+        { "type": "memory", "key": " RAM",     "keyColor": "#E6D47B" },
+        { "type": "disk", "key": " \uf303 Root", "keyColor": "#E6D47B", "folders": "/" },
+        { "type": "disk", "key": " \uf015 Home", "keyColor": "#E6D47B", "folders": "/home" },
+        { "type": "disk", "key": " \uF11B Games", "keyColor": "#E6D47B", "folders": "/run/media/vyevd/Games and Apps" },
+        { "type": "disk", "key": " \uF17A Windows", "keyColor": "#E6D47B", "folders": "/run/media/vyevd/Windows" },
+        {
+            "type": "custom",
+            "format": "\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518",
+            "outputColor": "#E6D47B"
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 2,
+            "symbol": "circle"
+        }
+    ]
+}
