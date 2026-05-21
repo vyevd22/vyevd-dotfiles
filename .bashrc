@@ -35,7 +35,6 @@ export PATH=$PATH:/home/vyevd/.spicetify
 export EDITOR=nvim
 export VISUAL=nvim
 export PATH="$HOME/.npm-global/bin:$PATH"
-export PARALLEL_API_KEY=RExl9YLl3vz2UpdaebjGLrMZFwdkkOtRFZkGUA9F
 
 alias stwindows='sudo grub-reboot "Windows Boot Manager" && reboot'
 alias config='git --git-dir="$HOME/.cfg" --work-tree="$HOME"'
