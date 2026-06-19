@@ -12,12 +12,7 @@
     "modules-right": ["mpris","pulseaudio", "network", "custom/notification", "tray", "custom/power"],
 
     "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "active": "●",
-            "default": "○",
-            "urgent": "◉"
-        },
+        "format": "[{name}]",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1",
         "all-outputs": false
