@@ -45,17 +45,17 @@
 
   "widget-config": {
     "title": {
-      "text": "Notifications",
+      "text": " notifications ",
       "clear-all-button": true,
-      "button-text": "Clear"
+      "button-text": "clear"
     },
     "dnd": {
-      "text": "Do Not Disturb"
+      "text": " dnd "
     },
     "mpris": {
       "autohide": true,
-      "image-size": 96,
-      "image-radius": 10,
+      "image-size": 0,
+      "image-radius": 0,
       "loop-carousel": false
     },
 
