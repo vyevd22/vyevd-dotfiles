@@ -1,6 +1,6 @@
 # vyevd-dotfiles
 
-my arch linux rice. theme is serial experiments lain + kikuri (bocchi the rock).
+my arch linux rice. theme is serial experiments lain 🗣️
 
 ## palette
 
@@ -40,7 +40,7 @@ you'll need these installed for the rice to work as intended:
 - hyprland (wm)
 - kitty (terminal)
 - waybar (bar)
-- rofi (launcher) — v2.0.0+
+- rofi (launcher) v2.0.0+
 - swaync (notifications)
 - wlogout (logout menu)
 - hyprlock (lock screen)
@@ -59,7 +59,7 @@ you'll need these installed for the rice to work as intended:
 - gpu-screen-recorder (replay capture)
 - thunar (file manager)
 - ble.sh (better bash completion)
-- crtty (crt shader for kitty) — this is a custom thing, ld_preload hack
+- crtty (crt shader for kitty)
 
 **fonts**
 - Mx437 IBM VGA 8x16 (retro terminal font, main everywhere)
@@ -68,8 +68,7 @@ you'll need these installed for the rice to work as intended:
 ## notes
 
 - borderless hyprland. shadow color is pink-tinted (`rgba(bb60970d)`).
-- kitty has crtty for the retro scanline/phosphor look. run `kitty-plain` to bypass it.
+- kitty has crtty for the retro scanline/phosphor look. run `kitty-plain` to bypass it. wait why did i even do that? just run SUPER+SHIFT+Q i literally added that-
 - fastfetch logo is the ryo/bocchi ascii art i found somewhere, colored pink.
 - sddm theme is at `/usr/share/sddm/themes/lain/` on my system (symlinked from the tracked path). needs sudo to set up.
 - the `config` alias is a bare git repo at `~/.cfg` with `work-tree=$HOME`. nothing fancy.
-- verse script (`~/.local/bin/verse`) is NOT tracked — it fetches random bible verses and caches them. the colors match the theme though.
