@@ -7,7 +7,7 @@
 .control-center {
     background: #0a0810;
     border: 2px solid rgba(106, 122, 138, 0.5);
-    border-radius: 16px;
+    border-radius: 12px;
     background-image: repeating-linear-gradient(
         0deg,
         transparent 0px,
@@ -27,7 +27,7 @@
 .notification-row:focus,
 .notification-row:hover {
     background: rgba(210, 115, 137, 0.1);
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
 .notification-row .notification-background {
@@ -35,17 +35,17 @@
     background: transparent;
 }
 
-/* Notification card — distinct terminal card */
+/* Notification card */
 .notification-row .notification-background .notification {
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(106, 122, 138, 0.2);
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 0;
     box-shadow: none;
 }
 
 .notification-row .notification-background .notification .notification-default-action {
-    border-radius: 8px;
+    border-radius: 4px;
     margin: 0;
     padding: 8px;
     background: transparent;
@@ -66,7 +66,7 @@
 
 .notification-row .notification-background .notification .notification-default-action .notification-content {
     background: transparent;
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 0;
 }
 
@@ -113,7 +113,7 @@
     background: transparent;
 }
 
-/* Title bar — terminal window header */
+/* Title bar */
 .widget-title {
     color: #D27389;
     background: rgba(210, 115, 137, 0.06);
@@ -140,7 +140,7 @@
     border-color: #D27389;
 }
 
-/* DND — terminal indicator */
+/* DND */
 .widget-dnd {
     background: transparent;
     border-bottom: 1px solid rgba(106, 122, 138, 0.15);
@@ -170,7 +170,7 @@
     min-height: 14px;
 }
 
-/* MPRIS — with visible pink accent border */
+/* MPRIS — pink accent border */
 .widget-mpris {
     background: rgba(0, 0, 0, 0.4);
     border-left: 3px solid #D27389;

@@ -10,7 +10,7 @@ window {
 button {
     background-color: rgba(0, 0, 0, 0.3);
     border: 2px solid #6a7a8a;
-    border-radius: 12px;
+    border-radius: 8px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 0%;
@@ -18,8 +18,8 @@ button {
     font-family: "Mx437 IBM VGA 8x16", "JetBrainsMono Nerd Font Propo";
     font-size: 14px;
     font-weight: bold;
-    margin: 8px;
-    padding: 12px 24px;
+    margin: 6px;
+    padding: 8px 16px;
     transition: none;
 }
 
