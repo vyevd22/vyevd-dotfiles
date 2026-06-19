@@ -16,4 +16,3 @@ Arch Linux + Hyprland + Kitty + Neovim + Waybar + Rofi + Starship
 - `rofi/` — app launcher + powermenu
 - `nvim/` — editor
 - `mpv/` — video player
-- `local/bin/verse` — random bible verse on terminal open
