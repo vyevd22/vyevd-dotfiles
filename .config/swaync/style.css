@@ -1,0 +1,200 @@
+* {
+    font-family: "Mx437 IBM VGA 8x16", "JetBrainsMono Nerd Font";
+    font-size: 13px;
+}
+
+/* CRT terminal panel — dark tinted bg + visible scanlines */
+.control-center {
+    background: #0a0810;
+    border: 2px solid rgba(106, 122, 138, 0.5);
+    border-radius: 16px;
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 3px,
+        rgba(0, 0, 0, 0.5) 3px,
+        rgba(0, 0, 0, 0.5) 6px
+    );
+}
+
+/* Notification row */
+.notification-row {
+    outline: none;
+    margin: 2px 6px;
+    background: transparent;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+    background: rgba(210, 115, 137, 0.1);
+    border-radius: 10px;
+}
+
+.notification-row .notification-background {
+    padding: 0;
+    background: transparent;
+}
+
+/* Notification card — distinct terminal card */
+.notification-row .notification-background .notification {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(106, 122, 138, 0.2);
+    border-radius: 10px;
+    padding: 0;
+    box-shadow: none;
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+    border-radius: 8px;
+    margin: 0;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.notification-row .notification-background .notification .notification-default-action:hover {
+    background: rgba(210, 115, 137, 0.08);
+}
+
+.notification-row .notification-background .notification .notification-default-action:focus,
+.notification-row .notification-background .notification .notification-default-action:active {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content {
+    background: transparent;
+    border-radius: 6px;
+    padding: 0;
+}
+
+/* Close button — terminal [x] */
+.close-button {
+    background: transparent;
+    color: #6a7a8a;
+    border-radius: 0;
+    padding: 2px 6px;
+    text-shadow: none;
+    border: 1px solid #6a7a8a;
+    font-size: 11px;
+}
+
+.close-button:hover {
+    background: #D27389;
+    color: #000000;
+    border-color: #D27389;
+}
+
+.summary {
+    font-size: 13px;
+    font-weight: bold;
+    color: #D27389;
+}
+
+.body {
+    font-size: 12px;
+    color: #cdd3e0;
+}
+
+.time {
+    font-size: 11px;
+    color: #6a7a8a;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list-placeholder {
+    color: rgba(205, 211, 224, 0.3);
+    font-style: italic;
+    background: transparent;
+}
+
+/* Title bar — terminal window header */
+.widget-title {
+    color: #D27389;
+    background: rgba(210, 115, 137, 0.06);
+    border-bottom: 1px solid rgba(106, 122, 138, 0.25);
+    border-radius: 0;
+    padding: 8px 12px;
+    margin: 0 0 4px 0;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.widget-title > button {
+    background: transparent;
+    border: 1px solid #6a7a8a;
+    border-radius: 0;
+    color: #cdd3e0;
+    font-size: 11px;
+    padding: 2px 8px;
+}
+
+.widget-title > button:hover {
+    background: #D27389;
+    color: #000000;
+    border-color: #D27389;
+}
+
+/* DND — terminal indicator */
+.widget-dnd {
+    background: transparent;
+    border-bottom: 1px solid rgba(106, 122, 138, 0.15);
+    border-radius: 0;
+    padding: 6px 12px;
+    margin: 0 0 4px 0;
+    color: #cdd3e0;
+    font-size: 12px;
+}
+
+.widget-dnd > switch {
+    background: rgba(106, 122, 138, 0.25);
+    border-radius: 0;
+    min-width: 36px;
+    min-height: 16px;
+}
+
+.widget-dnd > switch:checked {
+    background: #D27389;
+}
+
+.widget-dnd > switch slider {
+    background: #000000;
+    border: 1px solid rgba(106, 122, 138, 0.3);
+    border-radius: 0;
+    min-width: 14px;
+    min-height: 14px;
+}
+
+/* MPRIS — with visible pink accent border */
+.widget-mpris {
+    background: rgba(0, 0, 0, 0.4);
+    border-left: 3px solid #D27389;
+    border-radius: 0;
+    padding: 8px 12px;
+    margin: 0 6px 4px 6px;
+    color: #cdd3e0;
+}
+
+.widget-mpris-player {
+    padding: 4px 0;
+}
+
+.widget-mpris-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #D27389;
+}
+
+.widget-mpris-subtitle {
+    font-size: 11px;
+    color: #6a7a8a;
+}
+
+.floating-notifications {
+    background: transparent;
+}

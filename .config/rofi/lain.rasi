@@ -1,0 +1,82 @@
+* {
+    bg:          rgba(0, 0, 0, 0.88);
+    bg-alt:      rgba(25, 10, 15, 0.70);
+    bg-selected: rgba(187, 96, 123, 0.15);
+    border-col:  rgba(106, 122, 138, 0.35);
+    fg:          #cdd3e0;
+    fg-dim:      #8890a4;
+    accent:      #BB607B;
+
+    font:             "Mx437 IBM VGA 8x16 12";
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+window {
+    width:            420px;
+    background-color: @bg;
+    border:           1px solid;
+    border-color:     @border-col;
+    border-radius:    12px;
+    padding:          12px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing:          8px;
+    children:         [inputbar, listview];
+}
+
+inputbar {
+    background-color: transparent;
+    border-radius:    8px;
+    padding:          10px 14px;
+    spacing:          8px;
+    children:         [prompt, entry];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @accent;
+    font:             "Mx437 IBM VGA 8x16 12";
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @fg;
+    placeholder:      "search...";
+    placeholder-color: @fg-dim;
+}
+
+listview {
+    background-color: transparent;
+    spacing:          2px;
+    lines:            8;
+    scrollbar:        false;
+}
+
+element {
+    background-color: transparent;
+    border-radius:    8px;
+    padding:          8px 12px;
+    spacing:          10px;
+    children:         [element-text];
+}
+
+element selected {
+    background-color: rgba(106, 122, 138, 0.2);
+    border:           none;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+}
+
+element normal.normal {
+    text-color: @fg-dim;
+}
+
+element selected.normal {
+    text-color: @fg;
+}
