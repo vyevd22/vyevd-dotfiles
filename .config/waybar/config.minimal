@@ -1,10 +1,10 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 12,
-    "margin-left": 16,
-    "margin-right": 16,
-    "height": 44,
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+    "height": 38,
     "spacing": 4,
 
     "modules-left": ["hyprland/workspaces"],
@@ -30,10 +30,10 @@
         "calendar": {
             "mode": "month",
             "format": {
-                "months": "<span color='#D27389'><b>{}</b></span>",
+                "months": "<span color='#e6d47b'><b>{}</b></span>",
                 "days": "<span color='#cdd3e0'>{}</span>",
-                "weekdays": "<span color='#BB607B'><b>{}</b></span>",
-                "today": "<span color='#D27389'><b><u>{}</u></b></span>"
+                "weekdays": "<span color='#4a7ab5'><b>{}</b></span>",
+                "today": "<span color='#BB607B'><b><u>{}</u></b></span>"
             }
         }
     },

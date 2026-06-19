@@ -1,2 +1,6 @@
+configuration {
+    display-drun: "❯";
+    display-emoji: "❯";
+}
 
-@theme "~/.config/rofi/ryo.rasi"
+@theme "~/.config/rofi/lain.rasi"

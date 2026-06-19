@@ -1,7 +1,6 @@
 * {
-    font-family: "Mx437 IBM VGA 8x16", "JetBrainsMono Nerd Font Propo", "Hina Mincho", monospace;
-    /* Palette: #D27389 pale pink, #BB607B kikuri magenta, #6a7a8a steel gray */
-    font-size: 17px;
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 14px;
     font-weight: 600;
     border: none;
     border-radius: 0;
@@ -24,18 +23,18 @@ window#waybar {
 
 #workspaces button {
     padding: 0 8px;
-    color: #6a7a8a;
-    font-size: 20px;
+    color: rgba(74, 122, 181, 0.4);
+    font-size: 16px;
     background: transparent;
     transition: color 0.3s ease;
 }
 
 #workspaces button.active {
-    color: #BB607B;
+    color: #e6d47b;
 }
 
 #workspaces button.urgent {
-    color: #E6D47B;
+    color: #d0574e;
 }
 
 #workspaces button:hover {
@@ -47,91 +46,88 @@ window#waybar {
 /* === Center — Clock === */
 
 #clock {
-    font-family: "Mx437 IBM VGA 8x16", "MxPlus IBM VGA 8x16", monospace;
-    color: #e0e4ec;
-    font-weight: 600;
-    font-size: 22px;
-    letter-spacing: 0.08em;
+    color: #E6D47B;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.05em;
     padding: 0 16px;
     background: transparent;
 }
 
 /* === Right — Modules === */
 
+#mpris,
 #pulseaudio,
 #network,
 #custom-notification,
 #custom-power,
 #tray {
     padding: 0 12px;
-    color: rgba(205, 211, 224, 0.5);
+    color: #8890a4;
     background: transparent;
     transition: color 0.2s ease;
 }
 
 #pulseaudio:hover {
-    color: #BB607B;
+    color: #eeb8c4;
 }
 
 #network:hover {
-    color: #BB607B;
+    color: #eeb8c4;
 }
 
 #pulseaudio.muted {
-    color: #BB607B;
+    color: rgba(187, 96, 123, 1.0);
 }
 
 #network.disconnected {
-    color: #BB607B;
+    color: rgba(187, 96, 123, 1.0);
 }
 
 #custom-notification.notification {
-    color: #D27389;
+    color: #e6d47b;
 }
 
 #custom-notification.dnd-none {
-    color: #BB607B;
+    color: #4a7ab5;
 }
 
 #custom-notification.dnd-notification {
-    color: #D27389;
+    color: #e6d47b;
 }
 
 #custom-notification:hover {
-    color: #BB607B;
+    color: #eeb8c4;
 }
 
 #custom-power {
-    color: rgba(205, 211, 224, 0.5);
-    font-size: 18px;
+    color: #8890a4;
+    font-size: 15px;
     transition: color 0.2s ease;
 }
 
 #custom-power:hover {
-    color: #BB607B;
+    color: #D0574E;
 }
 
 #mpris {
-    color: #BB607B;
+    color: rgba(230, 212, 123, 1.0);
     font-style: italic;
-    font-size: 16px;
-    padding: 0 12px;
 }
 
 #mpris.paused {
-    color: rgba(187, 96, 123, 0.4);
+    color: #8890a4;
 }
 
-/* === Tooltip — old-school terminal style === */
+/* === Tooltip === */
 
 tooltip {
-    background: #000000;
-    border: 1px solid #6a7a8a;
-    border-radius: 0;
-    padding: 4px 6px;
+    background: rgba(13, 21, 32, 0.95);
+    border: 2px solid rgba(64, 97, 160, 1.0);
+    border-radius: 8px;
+    padding: 12px;
 }
 tooltip label {
     color: #cdd3e0;
-    font-size: 12px;
-    font-family: "Mx437 IBM VGA 8x16", "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 15px;
 }
