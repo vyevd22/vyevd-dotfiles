@@ -37,20 +37,16 @@
   "relative-timestamps": true,
 
   "widgets": [
-    "dnd",
-    "mpris",
     "title",
+    "mpris",
     "notifications"
   ],
 
   "widget-config": {
     "title": {
-      "text": " notifications ",
+      "text": "[ notifications ]",
       "clear-all-button": true,
       "button-text": "clear"
-    },
-    "dnd": {
-      "text": " dnd "
     },
     "mpris": {
       "autohide": true,
