@@ -66,7 +66,7 @@
 
     "custom/power": {
         "format": "⏻",
-        "on-click": "~/.config/rofi/scripts/powermenu.sh",
+        "on-click": "wlogout -C ~/.config/wlogout/style.css -b 6 -c 8 -T 520 -B 520 -L 200 -R 200",
         "tooltip": false
     },
 

@@ -1,49 +1,29 @@
-* {
-    background-image: none;
-    box-shadow: none;
-}
-
 window {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: #000000;
 }
 
 button {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #000000;
+    background-image: none;
     border: 2px solid #6a7a8a;
-    border-radius: 8px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 0%;
+    border-radius: 0;
+    box-shadow: none;
     color: #cdd3e0;
-    font-family: "Mx437 IBM VGA 8x16", "JetBrainsMono Nerd Font Propo";
-    font-size: 14px;
+    font-family: "Mx437 IBM VGA 8x16", "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 16px;
     font-weight: bold;
-    margin: 6px;
-    padding: 8px 16px;
-    transition: none;
+    margin: 0;
+    min-height: 0;
+    min-width: 0;
+    outline-style: none;
+    padding: 0 12px;
+    text-shadow: none;
 }
 
 button:focus, button:active, button:hover {
     background-color: #D27389;
     border-color: #D27389;
     color: #000000;
-    outline-style: none;
-}
-
-#lock {
-    border-color: #6a7a8a;
-}
-
-#logout {
-    border-color: #6a7a8a;
-}
-
-#suspend {
-    border-color: #6a7a8a;
-}
-
-#hibernate {
-    border-color: #6a7a8a;
 }
 
 #shutdown {
@@ -54,8 +34,4 @@ button:focus, button:active, button:hover {
     background-color: #BB607B;
     border-color: #BB607B;
     color: #000000;
-}
-
-#reboot {
-    border-color: #6a7a8a;
 }
