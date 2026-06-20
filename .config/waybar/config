@@ -9,7 +9,7 @@
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["mpris","pulseaudio", "network", "custom/notification", "tray", "custom/power"],
+    "modules-right": ["mpris","cava","pulseaudio", "custom/notification", "tray", "custom/power"],
 
     "hyprland/workspaces": {
         "format": "[{name}]",
@@ -45,12 +45,16 @@
         "scroll-step": 1
         },
 
-        "network": {
-        "format-wifi": "󰤨 ",
-        "format-ethernet": "󰤨 ",
-        "format-disconnected": "󰤭 ",
-        "tooltip-format": "vyevdnet — {ipaddr}\n↑ {bandwidthUpBits}  ↓ {bandwidthDownBits}",
-        "interval": 5
+    "cava": {
+        "method": "pulse",
+        "source": "auto",
+        "framerate": 48,
+        "bars": 10,
+        "format-icons": ["▁ ", "▂ ", "▃ ", "▄ ", "▅ ", "▆ ", "▇ ", "█ "],
+        "bar_delimiter": 0,
+        "noise_reduction": 0.25,
+        "monstercat": true,
+        "input_delay": 1
     },
 
     "mpris": {
@@ -59,8 +63,6 @@
         "player": "spotify",
         "max-length": 60,
         "on-click": "playerctl --player=spotify play-pause",
-        "on-click-right": "playerctl --player=spotify next",
-        "on-click-middle": "playerctl --player=spotify previous",
         "tooltip": false
     },
 

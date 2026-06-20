@@ -58,8 +58,22 @@ window#waybar {
 
 /* === Right — Modules === */
 
-#pulseaudio,
-#network,
+#pulseaudio {
+    padding: 0 12px;
+    color: rgba(205, 211, 224, 0.5);
+    background: transparent;
+    transition: color 0.2s ease;
+}
+
+#cava {
+    margin: 0 0 0 6px;
+    padding: 0;
+    color: #D27389;
+    background: transparent;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
 #custom-notification,
 #custom-power,
 #tray {
@@ -73,15 +87,7 @@ window#waybar {
     color: #BB607B;
 }
 
-#network:hover {
-    color: #BB607B;
-}
-
 #pulseaudio.muted {
-    color: #BB607B;
-}
-
-#network.disconnected {
     color: #BB607B;
 }
 

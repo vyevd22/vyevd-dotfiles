@@ -4,7 +4,7 @@
     "logo": {
         "source": "~/.config/fastfetch/ryo-ascii.txt",
         "color": {
-            "1": "#D27389"
+            "1": "#D971AA"
         },
         "padding": {
             "top": 0,
