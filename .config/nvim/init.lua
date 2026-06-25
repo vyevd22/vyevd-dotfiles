@@ -123,3 +123,6 @@ require("lazy").setup({
   },
 
 })
+
+-- Visual highlight override for visibility on pure black bg + CRTty transparency
+vim.api.nvim_set_hl(0, "Visual", { bg = "#4a2a30" })

@@ -1,0 +1,28 @@
+[Unit]
+Description=gpu-screen-recorder replay capture daemon
+Documentation=https://github.com/dec05eba/gpu-screen-recorder
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/gpu-screen-recorder \
+    -w screen \
+    -f 60 \
+    -a "default_output|device:alsa_input.usb-352f_PD100X_Podcast_Microphone_214b206000000178-00.mono-fallback" \
+    -r 30 \
+    -c mp4 \
+    -bm cbr \
+    -q 4000 \
+    -k h264 \
+    -replay-storage ram \
+    -sc %h/.config/gpu-screen-recorder/compress-replay.sh \
+    -o %h/Videos/Replays
+Restart=on-failure
+RestartSec=5
+
+# Environment
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-1
+
+[Install]
+WantedBy=graphical-session.target
