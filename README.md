@@ -1,10 +1,14 @@
 # the vyevdfiles
 
 komputah komputah is this an epstein reference
+<br>
 no this is my arch linux rice
+<br>
 themed around the #1 LARP of 2026
+<br>
 serial experiments lain 🗣️
-(im not a larper i swear i watched the show 😢)
+<br>
+<sub>(im not a larper i swear i watched the show 😢)</sub>
 
 ## palette
 
