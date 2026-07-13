@@ -1,6 +1,6 @@
 format = """
 [╭─](bold #D27389) $username$hostname $directory [$git_branch]($style)$git_status
-[╰─](bold #E6D47B) $character"""
+[╰─](bold #6a7a8a) $character"""
 
 add_newline = true
 
@@ -13,11 +13,11 @@ style_root = "bold #BB607B"
 [hostname]
 ssh_only = false
 format = "[@$hostname]($style)"
-style = "#E6D47B"
+style = "#6a7a8a"
 
 [directory]
 format = "[$path]($style)"
-style = "#6a7a8a"
+style = "#E6D47B"
 truncation_length = 3
 truncation_symbol = "…"
 truncate_to_repo = true
@@ -25,7 +25,7 @@ truncate_to_repo = true
 [git_branch]
 format = "[$branch]($style)"
 symbol = ""
-style = "#6a7a8a"
+style = "#E6D47B"
 
 [git_status]
 format = " [$modified]($style)"
@@ -42,5 +42,5 @@ renamed = ""
 deleted = ""
 
 [character]
-success_symbol = "[❯](bold #E6D47B)"
+success_symbol = "[❯](bold #6a7a8a)"
 error_symbol = "[❯](bold #BB607B)"

@@ -117,6 +117,14 @@ window#waybar {
     color: #BB607B;
 }
 
+#custom-uptime {
+    padding: 0 12px;
+    color: #6a7a8a;
+    background: transparent;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+
 #mpris {
     color: #BB607B;
     font-style: italic;
@@ -128,13 +136,58 @@ window#waybar {
     color: rgba(187, 96, 123, 0.4);
 }
 
-/* === Tooltip — old-school terminal style === */
+/* === Left bar — system stats === */
+
+#cpu {
+    padding: 0 8px;
+    color: rgba(205, 211, 224, 0.5);
+    background: transparent;
+    font-size: 16px;
+}
+
+#memory {
+    padding: 0 8px;
+    color: rgba(205, 211, 224, 0.5);
+    background: transparent;
+    font-size: 16px;
+}
+
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#custom-gpu:hover {
+    color: #BB607B;
+}
+
+#disk {
+    padding: 0 8px;
+    color: rgba(205, 211, 224, 0.5);
+    background: transparent;
+    font-size: 16px;
+}
+
+#temperature {
+    padding: 0 8px;
+    color: rgba(205, 211, 224, 0.5);
+    background: transparent;
+    font-size: 16px;
+}
+
+#custom-gpu {
+    padding: 0 8px;
+    color: rgba(205, 211, 224, 0.5);
+    background: transparent;
+    font-size: 16px;
+}
+
+/* === Tooltip — minimal readout === */
 
 tooltip {
     background: #000000;
-    border: 1px solid #6a7a8a;
+    border: 1px solid #D27389;
     border-radius: 0;
-    padding: 4px 6px;
+    padding: 4px 8px;
 }
 tooltip label {
     color: #cdd3e0;

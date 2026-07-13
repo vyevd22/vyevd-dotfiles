@@ -2,7 +2,7 @@
     bg:          rgba(0, 0, 0, 0.88);
     bg-alt:      rgba(25, 10, 15, 0.70);
     bg-selected: rgba(187, 96, 123, 0.15);
-    border-col:  rgba(106, 122, 138, 0.35);
+    border-col:  rgba(210, 115, 137, 0.6);
     fg:          #cdd3e0;
     fg-dim:      #8890a4;
     accent:      #BB607B;
@@ -17,7 +17,7 @@ window {
     background-color: @bg;
     border:           1px solid;
     border-color:     @border-col;
-    border-radius:    12px;
+    border-radius:    0px;
     padding:          12px;
 }
 
@@ -29,7 +29,7 @@ mainbox {
 
 inputbar {
     background-color: transparent;
-    border-radius:    8px;
+    border-radius:    0px;
     padding:          10px 14px;
     spacing:          8px;
     children:         [prompt, entry];
@@ -57,7 +57,7 @@ listview {
 
 element {
     background-color: transparent;
-    border-radius:    8px;
+    border-radius:    0px;
     padding:          8px 12px;
     spacing:          10px;
     children:         [element-text];

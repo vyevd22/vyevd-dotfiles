@@ -13,13 +13,13 @@
   "control-center-margin-bottom": 8,
   "control-center-margin-right": 8,
   "control-center-margin-left": 0,
-  "control-center-width": 420,
+  "control-center-width": 360,
   "control-center-height": -1,
   "fit-to-screen": true,
   "control-center-exclusive-zone": false,
 
   "notification-window-width": 380,
-  "notification-icon-size": 32,
+  "notification-icon-size": 24,
   "notification-body-image-height": 100,
   "notification-body-image-width": 200,
   "notification-inline-replies": false,
@@ -29,7 +29,7 @@
   "timeout-low": 5,
   "timeout-critical": 0,
   "keyboard-shortcuts": true,
-  "image-visibility": "when-available",
+  "image-visibility": "never",
   "transition-time": 150,
   "hide-on-clear": false,
   "hide-on-action": true,
@@ -38,23 +38,15 @@
 
   "widgets": [
     "title",
-    "mpris",
     "notifications"
   ],
 
   "widget-config": {
     "title": {
       "text": "[ notifications ]",
-      "clear-all-button": true,
+      "clear-all-button": false,
       "button-text": "clear"
     },
-    "mpris": {
-      "autohide": true,
-      "image-size": 0,
-      "image-radius": 0,
-      "loop-carousel": false
-    },
-
     "notifications": {
       "vexpand": false
     }
