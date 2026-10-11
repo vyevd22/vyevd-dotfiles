@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Terminal screensaver picker
+# Opens a screensaver in a fullscreen kitty window
+
+case "${1:-}" in
+  cmatrix|c)
+    kitty --class screensaver -e cmatrix -C magenta -b
+    ;;
+  pipes|p)
+    kitty --class screensaver -e pipes.sh
+    ;;
+  bb|b)
+    kitty --class screensaver -e bb
+    ;;
+  random|r|"")
+    opts=(cmatrix pipes bb)
+    choice=${opts[$RANDOM % ${#opts[@]}]}
+    exec "$0" "$choice"
+    ;;
+  *)
+    echo "usage: screensaver [cmatrix|pipes|bb|random]"
+    exit 1
+    ;;
+esac

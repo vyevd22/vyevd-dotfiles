@@ -30,7 +30,7 @@ after stowing hypr: `hyprctl reload`. after waybar: `pkill waybar; waybar & wayb
 | `kitty/` | terminal with pxplus ibm vga8 font, monochrome palette, pink accent |
 | `waybar/` | status bar, vga font, bracketed workspaces, cava vis, terminal-style. `config-dp3.jsonc` is the left-monitor bar |
 | `rofi/` | app launcher, emoji picker, clipboard picker and powermenu; vga font, no icons, `❯` prompt, steel gray selection |
-| `scripts/` | `kp-rofi` (keepassxc picker, `SUPER+K`), `rofi-wifi-menu.sh` |
+| `scripts/` | `kp-rofi` (keepassxc picker, `SUPER+K`), `rofi-wifi-menu.sh`, `screensaver`, `waybar-gpu` (bar helper), `kitty-plain` |
 | `swaync/` | notification daemon |
 | `wlogout/` | powermenu grahhhh, looks kinda ugly but i dont care cus its tuff |
 | `nvim/` | editor with a pink smear cursor :3 (`init.lua` + `lazy-lock.json`) |

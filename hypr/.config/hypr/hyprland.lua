@@ -299,8 +299,6 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 0, hl.dsp.window.move({ workspac
 
 hl.bind(mainMod .. " + " .. "O", hl.dsp.exec_cmd("pypr-client toggle calc"))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "X", hl.dsp.exec_cmd("kitty -e ~/.local/bin/nur"))
-
 hl.bind(mainMod .. " + " .. "P", hl.dsp.exec_cmd("pypr-client toggle cava"))
 
 hl.bind(mainMod .. " + " .. "B", hl.dsp.exec_cmd("pypr-client expose"))

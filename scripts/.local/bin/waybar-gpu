@@ -1,0 +1,15 @@
+#!/bin/bash
+# Waybar GPU module — reads AMD GPU stats from sysfs
+
+gpu_busy=$(cat /sys/class/drm/card1/device/gpu_busy_percent 2>/dev/null || echo 0)
+
+vram_used=$(cat /sys/class/drm/card1/device/mem_info_vram_used 2>/dev/null || echo 0)
+vram_total=$(cat /sys/class/drm/card1/device/mem_info_vram_total 2>/dev/null || echo 1)
+
+vram_used_mb=$(( vram_used / 1048576 ))
+vram_total_mb=$(( vram_total / 1048576 ))
+
+gpu_temp=$(cat /sys/class/hwmon/hwmon1/temp1_input 2>/dev/null || echo 0)
+gpu_temp_c=$(( gpu_temp / 1000 ))
+
+echo "{\"text\": \"GPU ${gpu_busy}%\", \"tooltip\": \"GPU: ${gpu_busy}%\nVRAM: ${vram_used_mb} MB / ${vram_total_mb} MB\nTemp: ${gpu_temp_c}°C\"}"
