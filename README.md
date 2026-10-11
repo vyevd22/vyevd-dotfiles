@@ -20,7 +20,7 @@ after stowing hypr: `hyprctl reload`. after waybar: `pkill waybar; waybar & wayb
 **manual steps stow can't do:**
 - sddm theme deploys with sudo: `sudo cp ~/dotfiles/sddm/.local/share/sddm/themes/lain/* /usr/share/sddm/themes/lain/`
 - secrets live outside the repo: `~/.parallel-env` (mode 600), sourced from `.bashrc` if present. never commit it.
-- GRUB theme lives in `/boot/grub/themes/lain/`, not tracked here.
+- GRUB theme lives in `/boot/grub/themes/lain/`, not tracked here cause im lazy
 
 ## what's here
 
@@ -40,6 +40,14 @@ after stowing hypr: `hyprctl reload`. after waybar: `pkill waybar; waybar & wayb
 | `fastfetch/` | system info with pink section boxes, steel labels, lain ascii art |
 | `systemd/` | user services (gpu-screen-recorder replay capture) |
 | `sddm/` | login screen theme sources (deploy with sudo, see above) |
+
+## personal bits (won't work as-is elsewhere)
+
+- `hypr/`: monitor names/rates (DP-3, HDMI-A-1), keyboard layouts (us,gr,de), mouse sensitivity. edit to taste.
+- `bash/`: android SDK paths, spicetify. my tools... just delete what you don't use.
+- `systemd/`: mic device string is my USB mic. replace with yours (`pactl list sources`).
+- wallpaper `~/Pictures/Wallpapers/Lets_All_Love_Lain.jpeg` isn't tracked. bring your own.
+- `fastfetch/`: GPU string is hardcoded to mine as a terrible little workaround to a nitpick i had, dont ask 👅
 
 ## palette
 
