@@ -297,8 +297,6 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 0, hl.dsp.window.move({ workspac
 
 -- pyprland scratchpads
 
-hl.bind(mainMod .. " + " .. "A", hl.dsp.exec_cmd("pypr-client toggle term"))
-
 hl.bind(mainMod .. " + " .. "O", hl.dsp.exec_cmd("pypr-client toggle calc"))
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "X", hl.dsp.exec_cmd("kitty -e ~/.local/bin/nur"))
