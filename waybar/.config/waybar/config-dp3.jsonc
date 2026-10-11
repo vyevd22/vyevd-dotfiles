@@ -1,0 +1,53 @@
+{
+    "output": ["DP-3"],
+    "layer": "top",
+    "position": "top",
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+    "height": 36,
+    "spacing": 4,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": [],
+    "modules-right": ["cpu", "memory", "custom/gpu", "disk", "temperature"],
+
+    "hyprland/workspaces": {
+        "format": "[{name}]",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "all-outputs": false
+    },
+
+    "cpu": {
+        "format": "CPU {usage}%",
+        "interval": 5,
+        "tooltip-format": "CPU: {usage}%"
+    },
+
+    "memory": {
+        "format": "MEM {percentage}%",
+        "interval": 10,
+        "tooltip-format": "RAM: {percentage}% — {used} / {total}"
+    },
+
+    "disk": {
+        "format": "DSK {percentage_used}%",
+        "interval": 30,
+        "path": "/",
+        "tooltip-format": "Disk: {percentage_used}% — {used} / {total}"
+    },
+
+    "temperature": {
+        "format": "TMP {temperatureC}°C",
+        "interval": 10,
+        "thermal-zone": 2,
+        "tooltip-format": "CPU: {temperatureC}°C"
+    },
+
+    "custom/gpu": {
+        "exec": "$HOME/.local/bin/waybar-gpu",
+        "interval": 5,
+        "return-type": "json"
+    }
+}

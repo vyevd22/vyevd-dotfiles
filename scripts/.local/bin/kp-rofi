@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# kp-rofi: fuzzy-pick a KeePassXC entry via rofi, copy password for 10s.
+# v1: copy-to-clipboard path (keepassxc-cli handles clipboard + auto-clear).
+set -u
+
+DB="$HOME/.local/share/keepassxc/passwords"
+GROUP="KeePassXC-Browser Passwords"
+
+# 1. master password, typed blind into rofi (never stored, only in memory)
+pw=$(rofi -dmenu -password -p "KeePassXC") || exit 1
+[ -n "${pw:-}" ] || exit 1
+
+# 2. list entries (wrong password -> tell and quit)
+entries=$(echo "$pw" | keepassxc-cli ls -q "$DB" "$GROUP" 2>/dev/null) || {
+    rofi -e "Wrong password"
+    unset pw
+    exit 1
+}
+
+# 3. fuzzy-pick one
+choice=$(printf '%s\n' "$entries" | rofi -dmenu -i -p "entry") || { unset pw; exit 1; }
+[ -n "${choice:-}" ] || { unset pw; exit 1; }
+
+# 4. copy its password, auto-clears after 10s
+echo "$pw" | keepassxc-cli clip -q "$DB" "$GROUP/$choice" 10 >/dev/null 2>&1
+unset pw
+
+notify-send "KeePassXC" "Password for $choice copied (clears in 10s)"

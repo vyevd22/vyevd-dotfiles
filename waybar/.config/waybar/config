@@ -1,0 +1,102 @@
+{
+    "output": ["HDMI-A-1"],
+    "layer": "top",
+    "position": "top",
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+    "height": 36,
+    "spacing": 4,
+
+    "modules-left": ["custom/uptime"],
+    "modules-center": ["clock"],
+    "modules-right": ["mpris","cava","pulseaudio", "custom/notification", "tray", "custom/power"],
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %d %B - %H:%M}",
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#D27389'><b>{}</b></span>",
+                "days": "<span color='#cdd3e0'>{}</span>",
+                "weekdays": "<span color='#BB607B'><b>{}</b></span>",
+                "today": "<span color='#D27389'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "tooltip-format": "Volume: {volume}%",
+        "on-click": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+        "scroll-step": 1
+        },
+
+    "cava": {
+        "method": "pulse",
+        "source": "auto",
+        "framerate": 48,
+        "bars": 10,
+        "format-icons": ["▁ ", "▂ ", "▃ ", "▄ ", "▅ ", "▆ ", "▇ ", "█ "],
+        "bar_delimiter": 0,
+        "noise_reduction": 0.25,
+        "monstercat": true,
+        "input_delay": 1
+    },
+
+    "mpris": {
+        "format": "{title}",
+        "format-paused": "{title} (paused)",
+        "player": "spotify",
+        "max-length": 60,
+        "on-click": "playerctl play-pause",
+        "tooltip": false,
+        "ignored-players": ["firefox", "chromium", "brave", "vlc", "mpv"]
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout -C ~/.config/wlogout/style.css -b 6 -c 8 -T 520 -B 520 -L 200 -R 200",
+        "tooltip": false
+    },
+
+    "custom/notification": {
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "",
+            "none": "",
+            "dnd-notification": "",
+            "dnd-none": "",
+            "inhibited-notification": "",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "tray": {
+        "spacing": 4,
+        "icon-size": 14
+    },
+
+    "custom/uptime": {
+        "exec": "awk '{printf \"%02d:%02d:%02d\", int($1/3600), int($1%3600/60), int($1%60)}' /proc/uptime",
+        "interval": 1,
+        "tooltip-format": "System uptime"
+    }
+}

@@ -1,0 +1,10 @@
+[SddmGreeterTheme]
+Name=lain
+Description=Lain CRT terminal login theme
+Author=vyevd
+Type=sddm-theme
+Version=1.0
+ConfigFile=Main.qml
+Theme-Id=lain
+Theme-API=2.0
+QtVersion=6

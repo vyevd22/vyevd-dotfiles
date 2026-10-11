@@ -1,0 +1,133 @@
+* {
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #cdd3e0;
+}
+
+/* === Left — Workspaces === */
+
+#workspaces {
+    padding: 0 6px;
+    background: transparent;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: rgba(74, 122, 181, 0.4);
+    font-size: 16px;
+    background: transparent;
+    transition: color 0.3s ease;
+}
+
+#workspaces button.active {
+    color: #e6d47b;
+}
+
+#workspaces button.urgent {
+    color: #d0574e;
+}
+
+#workspaces button:hover {
+    color: #cdd3e0;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* === Center — Clock === */
+
+#clock {
+    color: #E6D47B;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    padding: 0 16px;
+    background: transparent;
+}
+
+/* === Right — Modules === */
+
+#mpris,
+#pulseaudio,
+#network,
+#custom-notification,
+#custom-power,
+#tray {
+    padding: 0 12px;
+    color: #8890a4;
+    background: transparent;
+    transition: color 0.2s ease;
+}
+
+#pulseaudio:hover {
+    color: #eeb8c4;
+}
+
+#network:hover {
+    color: #eeb8c4;
+}
+
+#pulseaudio.muted {
+    color: rgba(187, 96, 123, 1.0);
+}
+
+#network.disconnected {
+    color: rgba(187, 96, 123, 1.0);
+}
+
+#custom-notification.notification {
+    color: #e6d47b;
+}
+
+#custom-notification.dnd-none {
+    color: #4a7ab5;
+}
+
+#custom-notification.dnd-notification {
+    color: #e6d47b;
+}
+
+#custom-notification:hover {
+    color: #eeb8c4;
+}
+
+#custom-power {
+    color: #8890a4;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+#custom-power:hover {
+    color: #D0574E;
+}
+
+#mpris {
+    color: rgba(230, 212, 123, 1.0);
+    font-style: italic;
+}
+
+#mpris.paused {
+    color: #8890a4;
+}
+
+/* === Tooltip === */
+
+tooltip {
+    background: rgba(13, 21, 32, 0.95);
+    border: 2px solid rgba(64, 97, 160, 1.0);
+    border-radius: 8px;
+    padding: 12px;
+}
+tooltip label {
+    color: #cdd3e0;
+    font-size: 15px;
+}
