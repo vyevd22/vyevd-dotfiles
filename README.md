@@ -96,11 +96,11 @@ you'll need these installed for the rice to work as intended
 - JetBrainsMono Nerd Font (nerd font fallback for icons, cava blocks)
 - Hina Mincho (Japanese kanji fallback)
 
-## notes
+## notes (mostly for... myself... cus im forgetful...)
 
-- 1px borders, pink gradient when active (`#D27389` → `#BB607B`), dark when inactive. no rounding, blur behind.
-- fastfetch logo is just lain colored pink.
-- monitors are hardcoded: DP-3 (Philips 273B9, 75Hz) left, HDMI-A-1 (ASUS, 100Hz) right. dual `waybar` instances, one per screen.
-- custom GRUB theme at `/boot/grub/themes/lain/` Lain ascii art, fastfetch 'mockup', terminal-style boot menu. not tracked in this repo cus it lives in /boot
-- font stack is `"PxPlus IBM VGA8"` → `"JetBrainsMono Nerd Font"` → `"Hina Mincho"` (all in monospace if possible).
-- repo is stow-based: real files live in `~/dotfiles/<package>/`, system paths hold symlinks. edit either end, same file.
+- 1px borders, pink gradient when active (`#D27389` -> `#BB607B`), dark when inactive
+- fastfetch logo is lain with a pink colour, i would show but im lazy
+- monitors are hardcoded, DP-3 (Philips 273B9, 75Hz) left, HDMI-A-1 (some ASUS monitor, 100Hz) right. dual `waybar` instances, one per screen.
+- custom GRUB theme at `/boot/grub/themes/lain/` Lain ascii art, fastfetch 'mockup', terminal-style boot menu. not tracked in this repo cus it lives in /boot, ill CONSIDER including it.
+- font stack is `"PxPlus IBM VGA8"`, `"JetBrainsMono Nerd Font"` and `"Hina Mincho"` (all in monospace if possible).
+- repo is stow-based which i still dont quite get how it works or what it means but real files live in `~/dotfiles/<package>/`, system paths hold symlinks. edit either end, same file.
