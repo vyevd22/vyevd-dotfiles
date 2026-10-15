@@ -37,7 +37,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 export PATH="$HOME/.npm-global/bin:$PATH"
 [ -f "$HOME/.parallel-env" ] && . "$HOME/.parallel-env"
-alias stwindows='sudo grub-reboot "Windows Boot Manager" && reboot'
 export QT_STYLE_OVERRIDE=kvantum
 export ANDROID_HOME=/opt/android-sdk
 export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
