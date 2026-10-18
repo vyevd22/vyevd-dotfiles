@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# false9 — football percentile charts (TUI)
+cd "$HOME/Projects/false9" || exit 1
+exec env SOCCERDATA_DIR="$HOME/Projects/false9" \
+    "$HOME/Projects/false9/.venv/bin/python" -m false9.tui "$@"
