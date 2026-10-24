@@ -1,0 +1,13 @@
+[Unit]
+Description=calcurse notification daemon
+StartLimitIntervalSec=0
+
+[Service]
+Type=forking
+ExecStart=%h/.config/calcurse/notify-daemon-wrapper.sh
+TimeoutStartSec=infinity
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=default.target

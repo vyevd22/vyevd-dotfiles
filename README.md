@@ -10,7 +10,7 @@ Lain-only Hyprland rice on Arch btw. pink terminals, VGA fonts, bracketed worksp
 git clone https://github.com/vyevd22/vyevd-dotfiles ~/dotfiles
 cd ~/dotfiles
 sudo pacman -S stow
-stow bash fastfetch hypr kitty mpv nvim rofi scripts sddm starship swaync systemd waybar wlogout
+stow bash calcurse fastfetch hypr kitty mpv nvim rofi scripts sddm starship swaync systemd waybar wlogout
 ```
 
 per-package if you only want pieces: `stow hypr kitty` etc. verify with `ls -l ~/.config/<thing>/` — stowed files show as symlinks (`->`) into `~/dotfiles`.
@@ -30,15 +30,16 @@ after stowing hypr: `hyprctl reload`. after waybar: `pkill waybar; waybar & wayb
 | `kitty/` | terminal with pxplus ibm vga8 font, monochrome palette, pink accent |
 | `waybar/` | status bar, vga font, bracketed workspaces, cava vis, terminal-style. `config-dp3.jsonc` is the left-monitor bar |
 | `rofi/` | app launcher, emoji picker, clipboard picker and powermenu; vga font, no icons, `❯` prompt, steel gray selection |
-| `scripts/` | `kp-rofi` (keepassxc picker, `SUPER+K`), `rofi-wifi-menu.sh`, `screensaver`, `waybar-gpu` (bar helper), `kitty-plain` |
+| `scripts/` | `kp-rofi` (keepassxc picker, `SUPER+K`), `rofi-wifi-menu.sh`, `screensaver`, `waybar-gpu` (bar helper), `kitty-plain`, `false9` + `spoti-*` launchers (thin wrappers into `~/Projects/`) |
 | `swaync/` | notification daemon |
+| `calcurse/` | calendar/organizer config, notify-daemon wrapper + morning digest scripts, ding sound. the actual calendar data (`~/.local/share/calcurse`) is deliberately NOT tracked — appointments are personal and the daemon log is runtime junk |
 | `wlogout/` | powermenu grahhhh, looks kinda ugly but i dont care cus its tuff |
 | `nvim/` | editor with a pink smear cursor :3 (`init.lua` + `lazy-lock.json`) |
 | `mpv/` | video player settings |
 | `bash/` | shell setup (ble.sh, starship hook, aliases) |
 | `starship/` | prompt with pink backbone, dark crimson username, steel @hostname, gold directory and ❯ |
 | `fastfetch/` | system info with pink section boxes, steel labels, lain ascii art |
-| `systemd/` | user services (gpu-screen-recorder replay capture) |
+| `systemd/` | user services: gpu-screen-recorder replay capture, calcurse notification daemon + 08:00 digest timer |
 | `sddm/` | login screen theme sources (deploy with sudo, see above) |
 
 ## personal bits (won't work as-is elsewhere)

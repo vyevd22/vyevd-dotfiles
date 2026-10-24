@@ -1,0 +1,5 @@
+daemon.enable=yes
+daemon.log=yes
+notification.notifyall=all
+notification.warning=60
+notification.command=notify-send -a calcurse -u normal -t 30000 calcurse "upcoming: $(calcurse --next | tail -1)"

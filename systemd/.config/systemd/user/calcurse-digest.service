@@ -1,0 +1,6 @@
+[Unit]
+Description=calcurse morning digest
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/calcurse/morning-digest.sh
