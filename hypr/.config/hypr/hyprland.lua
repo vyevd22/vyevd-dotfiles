@@ -305,7 +305,7 @@ hl.bind(mainMod .. " + " .. "B", hl.dsp.exec_cmd("pypr-client expose"))
 
 -- swaync notification center
 
-hl.bind(mainMod .. " + " .. "N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+hl.bind(mainMod .. " + " .. "N", hl.dsp.exec_cmd("kitty -e calcurse"))
 
 hl.bind(mainMod .. " + " .. "D", hl.dsp.exec_cmd("swaync-client -d"))
 

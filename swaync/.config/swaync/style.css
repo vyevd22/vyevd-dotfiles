@@ -28,10 +28,12 @@
     background: transparent;
 }
 
-/* Notification card — compact terminal line */
+/* Notification card — compact terminal line.
+   solid black body: invisible inside the black control-center, but gives
+   standalone toasts (which have no panel behind them) a readable frame */
 .notification-row .notification-background .notification {
-    background: transparent;
-    border: none;
+    background: #000000;
+    border: 1px solid #D27389;
     border-radius: 0;
     padding: 0;
     box-shadow: none;

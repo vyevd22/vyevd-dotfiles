@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# spoti-mood — launcher (stow'd); logic lives in ~/Projects/spoti-list
+cd "$HOME/Projects/spoti-list" || exit 1
+exec .venv/bin/python -m "spotilist.cli.mood" "$@"

@@ -19,6 +19,7 @@
   "control-center-exclusive-zone": false,
 
   "notification-window-width": 380,
+  "notification-window-preferred-output": "HDMI-A-1",
   "notification-icon-size": 24,
   "notification-body-image-height": 100,
   "notification-body-image-width": 200,
@@ -35,6 +36,18 @@
   "hide-on-action": true,
   "text-empty": "No notifications",
   "relative-timestamps": true,
+
+  "scripts": {
+    "calcurse-ding": {
+      "exec": "/home/vyevd/.config/calcurse/play-ding.sh",
+      "app-name": "(?i)calcurse",
+      "run-on": "receive"
+    },
+    "silence-everything-else": {
+      "exec": "true",
+      "run-on": "receive"
+    }
+  },
 
   "widgets": [
     "title",
