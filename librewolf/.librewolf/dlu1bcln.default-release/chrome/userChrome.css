@@ -1,0 +1,19 @@
+#TabsToolbar { display: none !important; }
+#sidebar-panel-header { display: none !important; }
+#sidebar-box { padding-inline-start: 0px !important; }
+
+* { border-radius: 0px !important; }
+
+/* --- extra polish --- */
+
+/* kill the splitter and sidebar border */
+#sidebar-splitter { display: none !important; }
+#sidebar-box { border-inline-end: none !important; }
+
+/* blend vertical tabs in more */
+#vertical-tabs { border-inline-end: none !important; }
+#vertical-tabs-newtab-button { border: none !important; }
+
+/* tighter navbar */
+#nav-bar { min-height: 28px !important; }
+#urlbar-container, #search-container { padding-block: 1px !important; }

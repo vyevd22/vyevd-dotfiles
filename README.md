@@ -10,7 +10,7 @@ Lain-only Hyprland rice on Arch btw. pink terminals, VGA fonts, bracketed worksp
 git clone https://github.com/vyevd22/vyevd-dotfiles ~/dotfiles
 cd ~/dotfiles
 sudo pacman -S stow
-stow bash calcurse fastfetch hypr kitty mpv nvim rofi scripts sddm spicetify starship swaync systemd waybar wlogout
+stow bash calcurse fastfetch hypr kitty librewolf mpv nvim rofi scripts sddm spicetify starship swaync systemd waybar wlogout
 ```
 
 per-package if you only want pieces: `stow hypr kitty` etc. verify with `ls -l ~/.config/<thing>/` — stowed files show as symlinks (`->`) into `~/dotfiles`.
@@ -31,6 +31,7 @@ after stowing hypr: `hyprctl reload`. after waybar: `pkill waybar; waybar & wayb
 | `waybar/` | status bar, vga font, bracketed workspaces, cava vis, terminal-style. `config-dp3.jsonc` is the left-monitor bar |
 | `rofi/` | app launcher, emoji picker, clipboard picker and powermenu; vga font, no icons, `❯` prompt, steel gray selection |
 | `scripts/` | `kp-rofi` (keepassxc picker, `SUPER+K`), `rofi-wifi-menu.sh`, `screensaver`, `waybar-gpu` (bar helper), `kitty-plain`, `false9` + `spoti-*` launchers (thin wrappers into `~/Projects/`) |
+| `librewolf/` | browser rice: vertical tabs, no splitter/borders, lain gif newtab (`chrome/img/background.gif`), VGA fonts, yellow-ish text. user.js = lightweight privacy + webrender. **note:** the profile dir name (`dlu1bcln.default-release`) and the install hash in `profiles.ini` are machine-specific — on a fresh install, copy `user.js` + `chrome/` into whatever profile librewolf creates instead of blind-stowing |
 | `spicetify/` | spotify: Hyprlain theme (pitch black, pink, spinning vinyl cover art), romaji lyrics extension with persistent cache, runtime tagger immune to spotify's per-build hashed classnames. debugging via `scripts/spotify-probe` — see `spicetify/README.md` for the full breakdown + update playbook |
 | `swaync/` | notification daemon |
 | `calcurse/` | calendar/organizer config, notify-daemon wrapper + morning digest scripts, ding sound. the actual calendar data (`~/.local/share/calcurse`) is deliberately NOT tracked — appointments are personal and the daemon log is runtime junk |
