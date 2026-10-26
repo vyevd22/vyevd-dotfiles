@@ -38,13 +38,8 @@
   "relative-timestamps": true,
 
   "scripts": {
-    "calcurse-ding": {
+    "notification-ding": {
       "exec": "/home/vyevd/.config/calcurse/play-ding.sh",
-      "app-name": "(?i)calcurse",
-      "run-on": "receive"
-    },
-    "silence-everything-else": {
-      "exec": "true",
       "run-on": "receive"
     }
   },

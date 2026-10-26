@@ -1,0 +1,3 @@
+[data-testid='home-page'] .contentSpacing > *:not(.view-homeShortcutsGrid-shortcuts, [data-testid='component-shelf']:has([href="/genre/recently-played"], [href="/section/0JQ5DAnM3wGh0gz1MXnu3z"])) {
+  display: none !important;
+}

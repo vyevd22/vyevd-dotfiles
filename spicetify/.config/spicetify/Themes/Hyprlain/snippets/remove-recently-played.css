@@ -1,0 +1,1 @@
+.main-shelf-shelf:has([href='/genre/recently-played']) { display: none !important; }

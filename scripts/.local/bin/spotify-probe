@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+"""spotify-probe — interrogate a running spotify via the Chrome DevTools Protocol.
+
+spotify is chromium; launch it with --remote-debugging-port=9222 and you can
+query the live DOM from a terminal. needs: python + websocket-client
+(pip install --user --break-system-packages websocket-client).
+
+usage:
+  spotify-probe launch            restart spotify WITH the debug port
+  spotify-probe state             view/panel/button state overview
+  spotify-probe lyrics            lyric lines, tags, font, cache state
+  spotify-probe ambient           every painted gradient/vivid element
+  spotify-probe covers            cover-art elements + animation status
+  spotify-probe sections          right-sidebar sections + visibility
+  spotify-probe exec '<js>'       evaluate arbitrary JS in the page
+  spotify-probe close             restart spotify clean (no debug port)
+"""
+
+import json
+import subprocess
+import sys
+import time
+
+try:
+    import websocket
+except ImportError:
+    sys.exit("websocket-client missing: pip install --user --break-system-packages websocket-client")
+
+PORT = 9222
+SPOTIFY_BIN = subprocess.run(
+    ["sh", "-c", "echo ~/.local/share/spotify-launcher/install/usr/share/spotify/spotify"],
+    capture_output=True, text=True).stdout.strip()
+LAUNCH_FLAGS = f"--remote-debugging-port={PORT} --remote-allow-origins=*"
+
+
+def sh(cmd):
+    return subprocess.run(["sh", "-c", cmd], capture_output=True, text=True).stdout.strip()
+
+
+def get_target():
+    out = sh(f"curl -s --max-time 4 http://localhost:{PORT}/json/list")
+    try:
+        targets = json.loads(out)
+    except json.JSONDecodeError:
+        return None
+    for t in targets:
+        if t.get("type") == "page":
+            return t["webSocketDebuggerUrl"]
+    return None
+
+
+def eval_js(js):
+    target = get_target()
+    if not target:
+        sys.exit("no debug target — run `spotify-probe launch` first")
+    ws = websocket.create_connection(target, timeout=30)
+    ws.send(json.dumps({"id": 1, "method": "Runtime.evaluate",
+                        "params": {"expression": js, "returnByValue": True}}))
+    while True:
+        msg = json.loads(ws.recv())
+        if msg.get("id") == 1:
+            res = msg.get("result", {})
+            if "exceptionDetails" in res:
+                det = res["exceptionDetails"]
+                desc = det.get("exception", {}).get("description") or det.get("text")
+                return f"PAGE EXCEPTION: {desc}"
+            return res.get("result", {}).get("value")
+    ws.close()
+
+
+PROBES = {
+    "state": """
+(function() {
+  const s = {
+    url: (function(){ try { return Spicetify.Platform.History.location.pathname; } catch(e){ return '?'; } })(),
+    title: document.title,
+    fullscreenNPV: !!document.querySelector('button[aria-label="Minimize Now Playing view"]'),
+    rightSidebar: !!document.querySelector('.Root__right-sidebar aside'),
+    lyricsRoute: (function(){ try { return Spicetify.Platform.History.location.pathname === '/lyrics'; } catch(e){ return false; } })()
+  };
+  return JSON.stringify(s, null, 1);
+})()""",
+    "lyrics": """
+(function() {
+  const ext = typeof Romaji_Lyrics !== 'undefined' ? {
+    selector: Romaji_Lyrics._lyricSelector,
+    matches: document.querySelectorAll(Romaji_Lyrics._lyricSelector).length,
+    cacheSize: Romaji_Lyrics.lineCache.size,
+    translatorFinished: Romaji_Lyrics.translator.finished,
+    lsEntries: Object.keys(localStorage).filter(k => k.startsWith('romaji:')).length
+  } : { present: false };
+  const lines = [...document.querySelectorAll('._3s1DGSMxRHUVPuxgkoss, .lyrics-lyricsContent-text')]
+    .filter(d => d.children.length === 0 && (d.textContent || '').trim());
+  ext.lines = lines.length;
+  ext.tagged = lines.filter(l => l.classList.contains('hyprlain-lyric')).length;
+  ext.font = lines.length ? getComputedStyle(lines[0]).fontSize + ' ' + getComputedStyle(lines[0]).fontFamily.slice(0, 40) : null;
+  ext.rowMargin = lines.length ? getComputedStyle(lines[0].parentElement).marginBottom : null;
+  ext.sample = lines.slice(0, 3).map(l => l.textContent.slice(0, 30));
+  return JSON.stringify(ext, null, 1);
+})()""",
+    "ambient": """
+(function() {
+  const out = [];
+  for (const e of document.querySelectorAll('body div')) {
+    const cs = getComputedStyle(e);
+    const bi = cs.backgroundImage, bc = cs.backgroundColor;
+    let paint = null;
+    if (bi && bi !== 'none' && bi.indexOf('gradient') !== -1) paint = bi.slice(0, 70);
+    if (!paint && bc && bc !== 'rgba(0, 0, 0, 0)' && bc !== 'rgb(0, 0, 0)') {
+      const m = bc.match(/rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)/);
+      if (m) { const mx = Math.max(+m[1],+m[2],+m[3]); if (mx > 60) paint = bc; }
+    }
+    if (!paint) continue;
+    const r = e.getBoundingClientRect();
+    if (r.width < 150) continue;
+    out.push({ cls: String(e.className).slice(0, 45) || '(none)',
+      size: Math.round(r.width) + 'x' + Math.round(r.height),
+      paint: paint, tagged: e.hasAttribute('data-hyprlain-ambient'),
+      effective: (cs.backgroundImage === 'none' && cs.backgroundColor === 'rgba(0, 0, 0, 0)') ? 'NEUTRALIZED' : 'PAINTED' });
+  }
+  return JSON.stringify(out.slice(0, 15), null, 1);
+})()""",
+    "covers": """
+(function() {
+  const out = [];
+  for (const img of document.querySelectorAll('img')) {
+    const r = img.getBoundingClientRect();
+    if (r.width < 100) continue;
+    const cs = getComputedStyle(img);
+    out.push({ cls: String(img.className).slice(0, 50), testid: img.getAttribute('data-testid'),
+      size: Math.round(r.width) + 'x' + Math.round(r.height),
+      anim: cs.animationName + '/' + cs.animationDuration,
+      tagged: img.classList.contains('hyprlain-vinyl') });
+  }
+  return JSON.stringify(out.slice(0, 12), null, 1);
+})()""",
+    "sections": """
+(function() {
+  const rs = document.querySelector('.Root__right-sidebar');
+  if (!rs) return 'no right sidebar';
+  return JSON.stringify([...rs.querySelectorAll('h2')].map(h => {
+    let cur = h, climbed = 0;
+    while (cur.parentElement && climbed < 4 &&
+           cur.parentElement.querySelectorAll('h2').length === 1 &&
+           cur.parentElement.getBoundingClientRect().height < 600) {
+      cur = cur.parentElement; climbed++;
+    }
+    return { header: h.textContent.trim(),
+      visible: cur ? getComputedStyle(cur).display !== 'none' : '?' };
+  }), null, 1);
+})()""",
+}
+
+
+def main():
+    if len(sys.argv) < 2:
+        print(__doc__)
+        sys.exit(1)
+    cmd = sys.argv[1]
+
+    if cmd == "launch":
+        sh("pkill -x spotify 2>/dev/null; sleep 3")
+        subprocess.Popen(["sh", "-c", f"nohup {SPOTIFY_BIN} {LAUNCH_FLAGS} >/dev/null 2>&1 &"])
+        time.sleep(12)
+        print("debug target:", get_target() or "NOT UP — wait a few more seconds and retry")
+        return
+    if cmd == "close":
+        sh("pkill -x spotify 2>/dev/null; sleep 3")
+        subprocess.Popen(["sh", "-c", "nohup spotify-launcher >/dev/null 2>&1 &"])
+        time.sleep(8)
+        up = sh("pgrep -x spotify")
+        port = sh(f"curl -s --max-time 3 http://localhost:{PORT}/json/list >/dev/null 2>&1 && echo up || echo closed")
+        print(f"spotify: {'running' if up else 'not up?!'} | debug port: {port}")
+        return
+    if cmd == "exec":
+        if len(sys.argv) < 3:
+            sys.exit("exec needs a JS argument")
+        print(eval_js(sys.argv[2]))
+        return
+    if cmd in PROBES:
+        print(eval_js(PROBES[cmd]))
+        return
+    print(__doc__)
+    sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
